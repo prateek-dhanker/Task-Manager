@@ -5,22 +5,17 @@ services:
     build: ./Server
     ports:
       - "3001:3000"
-    volumes:
-      - ./server:/app
     env_file:
       - ./server/config.env
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
     depends_on:
       - mongo
 
   client:
     build: ./Client
     ports:
-      - "5174:5173"
-    volumes:
-      - ./Client:/app
-      - /app/node_modules     # Prevents host from overwriting container's node_modules
+      - "5174:80"  # NGINX serves at port 80 now
     depends_on:
       - server
 

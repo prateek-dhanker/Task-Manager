@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  server:
+    build: ./Server
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./server:/app
+    env_file:
+      - ./server/config.env
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - mongo
+
+  client:
+    build: ./Client
+    ports:
+      - "5174:5173"
+    volumes:
+      - ./Client:/app
+      - /app/node_modules     # Prevents host from overwriting container's node_modules
+    depends_on:
+      - server
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

@@ -9,7 +9,7 @@ const Profile = (props) => {
   const [userList, setUserList] = useState([]);
   
   useEffect(() => {
-    axios.get('http://localhost:3000/api/auth/all')
+    axios.get('http://server:3000/api/auth/all')
       .then(res => {
           const allUsers = res.data;
           setUserList(allUsers);
@@ -21,7 +21,7 @@ const Profile = (props) => {
   const handleDelete = async(username) =>{
     try {
       if(confirm("wanna delete")){
-        const res = await axios.post('http://localhost:3000/api/auth/delete', {username });
+        const res = await axios.post('http://server:3000/api/auth/delete', {username });
         if(username == token.username){
           localStorage.removeItem('token');
           navigate('/')
@@ -37,7 +37,7 @@ const Profile = (props) => {
     try {
       const newUsername = prompt("Type new username");
       if(newUsername.length){
-        const res = await axios.post('http://localhost:3000/api/auth/edit', {username : username, newUsername:newUsername, admin:token.admin});
+        const res = await axios.post('http://server:3000/api/auth/edit', {username : username, newUsername:newUsername, admin:token.admin});
 
         if(username == token.username){
 

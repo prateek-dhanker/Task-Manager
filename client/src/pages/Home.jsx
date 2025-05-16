@@ -40,7 +40,7 @@ const HomePage = () => {
           {/* Text Content */}
           <div className="md:w-1/2">
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-              Stay Organized, Stay Ahead
+              Stay Organized, Stay Ahead of All
             </h1>
             <p className="text-gray-300 mb-6 text-lg">
               Your personal task manager to boost productivity, track progress, and meet goals on time.

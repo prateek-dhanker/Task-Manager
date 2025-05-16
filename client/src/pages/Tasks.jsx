@@ -312,7 +312,7 @@ const Tasks = (props) => {
                     return (
                       <li key={index}>
                         <a
-                          href={`http://localhost:3000/${relativePath}`}
+                          href={`https://task-manager-v0ym.onrender.com/${relativePath}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="hover:underline"

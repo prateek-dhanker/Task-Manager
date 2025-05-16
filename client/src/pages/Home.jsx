@@ -47,12 +47,12 @@ const HomePage = () => {
               Easily manage tasks, collaborate with teammates, and stay in control of your projects.
             </p>
             <div className="space-x-4">
-              <a href="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
+              <Link to="/signup" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg transition">
                 Get Started
-              </a>
-              <a href="/login" className="border border-blue-600 text-blue-400 hover:text-white px-6 py-3 rounded-lg text-lg transition">
+              </Link>
+              <Link to="/login" className="border border-blue-600 text-blue-400 hover:text-white px-6 py-3 rounded-lg text-lg transition">
                 Login
-              </a>
+              </Link>
             </div>
           </div>
 

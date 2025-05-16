@@ -312,7 +312,7 @@ const Tasks = (props) => {
                     return (
                       <li key={index}>
                         <a
-                          href={`http://server:3000/${relativePath}`}
+                          href={`http://localhost:3000/${relativePath}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="hover:underline"

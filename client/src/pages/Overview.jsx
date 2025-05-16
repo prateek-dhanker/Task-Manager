@@ -7,7 +7,7 @@ const Overview = (props) => {
   const [tasks, setTasks] = useState([]);
   
     useEffect(() => {
-      axios.get('http://server:3000/api/tasks/all')
+      axios.get('http://localhost:3000/api/tasks/all')
         .then(res => {
           if(token.admin)
             setTasks(res.data)

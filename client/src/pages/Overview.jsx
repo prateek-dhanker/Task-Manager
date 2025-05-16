@@ -7,7 +7,7 @@ const Overview = (props) => {
   const [tasks, setTasks] = useState([]);
   
     useEffect(() => {
-      axios.get('http://localhost:3000/api/tasks/all')
+      axios.get('https://task-manager-v0ym.onrender.com/api/tasks/all')
         .then(res => {
           if(token.admin)
             setTasks(res.data)

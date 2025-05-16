@@ -11,7 +11,7 @@ const SignupPage = () => {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/api/auth/signup', { username, admin ,password });
+      const res = await axios.post('https://task-manager-v0ym.onrender.com/api/auth/signup', { username, admin ,password });
       localStorage.setItem('token', res.data.token);
       navigate('/dashboard')
     } catch (err) {

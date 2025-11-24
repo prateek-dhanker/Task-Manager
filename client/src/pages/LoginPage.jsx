@@ -9,7 +9,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, { username, password });
+      const res = await axios.post(`${process.env.VITE_API_URL}/api/auth/login`, { username, password });
       localStorage.setItem('token', res.data.token);
       navigate('/dashboard')
     } catch (err) {

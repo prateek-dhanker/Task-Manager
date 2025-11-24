@@ -47,10 +47,13 @@ router.post('/add', upload.array('documents', 3), async (req, res) => {
 
     const user = await User.findOne({ username: assignedTo });
     if (!user) return res.status(400).json({ message: 'Username not found' });
+    
+    
+    // const count  = await Task.countDocuments({assignedTo:assignedTo,stutus: {$ne : "complete"}   });
 
-    const count  = Task.countDocuments({assignedTo:assignedTo,stutus: {$ne : "complete"}   });
-    if(count > 10)
-        return res.status(500).json({message : "Too many tasks allrady assigned to the user"});
+    // console.log(count)
+    // if(count > 10)
+    //     return res.status(500).json({message : "Too many tasks allrady assigned to the user"});
 
     // Get uploaded file paths
     const documents = req.files?.map(file => file.path) || [];

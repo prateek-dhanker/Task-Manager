@@ -29,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({
   origin: 'https://task-manager-1-185z.onrender.com',
 }));
+// app.use(cors())
 
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

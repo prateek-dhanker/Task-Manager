@@ -22,7 +22,7 @@ const Tasks = (props) => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    axios.get('https://task-manager-v0ym.onrender.com/api/tasks/all')
+    axios.get('${process.env.REACT_APP_API_URL}/api/tasks/all')
       .then(res => {
         if(token.admin)
           setTasks(res.data)
@@ -80,7 +80,7 @@ const Tasks = (props) => {
     
     if(formData.id){
       try {
-        const res = await axios.post('https://task-manager-v0ym.onrender.com/api/tasks/delete', {title:oldData.title,assignedTo:oldData.assignedTo});
+        const res = await axios.post('${process.env.REACT_APP_API_URL}/api/tasks/delete', {title:oldData.title,assignedTo:oldData.assignedTo});
       } catch (err) {
         const errorMsg = err.response?.data?.message || 'Task Addition failed';
         alert(errorMsg);
@@ -101,7 +101,7 @@ const Tasks = (props) => {
       });
     }
     try {
-      const res = await axios.post('https://task-manager-v0ym.onrender.com/api/tasks/add', form, {
+      const res = await axios.post('${process.env.REACT_APP_API_URL}/api/tasks/add', form, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
       alert('Task added successfully');
@@ -136,7 +136,7 @@ const Tasks = (props) => {
   const handleDelete = async(title,assignedTo) => {
     try {
       if(confirm("wanna delete")){
-        const res = await axios.post('https://task-manager-v0ym.onrender.com/api/tasks/delete', {title, assignedTo });    
+        const res = await axios.post('${process.env.REACT_APP_API_URL}/api/tasks/delete', {title, assignedTo });    
       }
     } catch (err) {
       const errorMsg = err.response?.data?.message || 'Delete failed';
@@ -312,7 +312,7 @@ const Tasks = (props) => {
                     return (
                       <li key={index}>
                         <a
-                          href={`https://task-manager-v0ym.onrender.com/${relativePath}`}
+                          href={`http://localhost:3000.com/${relativePath}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="hover:underline"

@@ -11,7 +11,7 @@ const SignupPage = () => {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post(`${process.env.VITE_API_URL}/api/auth/signup`, { username, admin ,password });
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/signup`, { username, admin ,password });
       localStorage.setItem('token', res.data.token);
       navigate('/dashboard')
     } catch (err) {

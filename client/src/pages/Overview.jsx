@@ -7,7 +7,7 @@ const Overview = (props) => {
   const [tasks, setTasks] = useState([]);
   
     useEffect(() => {
-      axios.get(`${process.env.VITE_API_URL}/api/tasks/all`)
+      axios.get(`${import.meta.env.VITE_API_URL}/api/tasks/all`)
         .then(res => {
           if(token.admin)
             setTasks(res.data)
